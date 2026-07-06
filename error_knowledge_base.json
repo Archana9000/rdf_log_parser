@@ -1,0 +1,94 @@
+{
+  "INVALID_AGENT": {
+    "pattern": "agent .* is invalid or expired|cannot load the agent",
+    "action": "Email to Antonietta (eBusiness support)",
+    "notes": "INVALID_AGENT - agent number expired or invalid in system",
+    "occurrences": 45,
+    "last_seen": "2026-04",
+    "example_actions_taken": [
+      "Email sent to Antonietta",
+      "AGENT is Valid (check before emailing)"
+    ]
+  },
+  "POLICY_IN_FORCE": {
+    "pattern": "policyinforce|already in force.*import data has been rejected",
+    "action": "No action needed - policy already in force",
+    "notes": "Policy already renewed/active, cannot reimport",
+    "occurrences": 30,
+    "last_seen": "2026-04",
+    "example_actions_taken": [
+      "No action items",
+      "NFA",
+      "You cant reimport an already active policy...NFA"
+    ]
+  },
+  "INVALID_SUNRISE_FOLDER_RANGE": {
+    "pattern": "folderrange|invalid_sunrise_folder_range|problem on getting sunrise folderrange",
+    "action": "Need to send as Import",
+    "notes": "FolderRange error from Sunrise TE",
+    "occurrences": 12,
+    "last_seen": "2026-03",
+    "example_actions_taken": [
+      "Send as Import (T)",
+      "No Action taken as Import was done",
+      "NFA"
+    ]
+  },
+  "CONTRACT_NOT_FOUND": {
+    "pattern": "contract .* not found|contract_not_found",
+    "action": "Reference mismatch due to discard. Need to send as Import",
+    "notes": "TDX server contract reference mismatch",
+    "occurrences": 10,
+    "last_seen": "2026-04",
+    "example_actions_taken": [
+      "Retry by importing/sending again",
+      "Import was done on <date>",
+      "Non EDI for many years, hence needs to send as import to sunrise"
+    ]
+  },
+  "INVITE_RENEWAL_NOT_CLOSED": {
+    "pattern": "inviterenewal.*not permitted.*contract has not been closed",
+    "action": "Need to send as Import",
+    "notes": "Previous renewal term has not been closed",
+    "occurrences": 8,
+    "last_seen": "2026-04",
+    "example_actions_taken": [
+      "Retry by importing/sending again",
+      "Cannot perform Import - Same Error",
+      "Need to send as import"
+    ]
+  },
+  "INVITE_RENEWAL_CANCELLED": {
+    "pattern": "inviterenewal.*not permitted.*terminated.*cancelled|cancelled or lapsed",
+    "action": "Check POLISY if cancelled. If cancelled, no action",
+    "notes": "Contract terminated/cancelled/lapsed",
+    "occurrences": 3,
+    "last_seen": "2026-03",
+    "example_actions_taken": [
+      "Check POLISY is cancelled. If it is cancelled no action item",
+      "NFA"
+    ]
+  },
+  "INVALID_BIND_STATE": {
+    "pattern": "invalid bind state.*ready.*bound",
+    "action": "Check POLISY if renewed. If renewed, no action",
+    "notes": "Bind state mismatch - Ready vs Bound expected",
+    "occurrences": 4,
+    "last_seen": "2026-03",
+    "example_actions_taken": [
+      "Please check POLISY renewed or not. If renewed no action item",
+      "NFA"
+    ]
+  },
+  "DATABASE_ERROR": {
+    "pattern": "database.*error|cannot open connection|cannot_connect_jdbc",
+    "action": "Retry - raise to I&O if persistent",
+    "notes": "Database connection failure",
+    "occurrences": 2,
+    "last_seen": "2026-03",
+    "example_actions_taken": [
+      "retry",
+      "Email sent to Antonietta"
+    ]
+  }
+}
